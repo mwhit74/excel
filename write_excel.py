@@ -17,9 +17,9 @@ def set_row(sheet, line, row = 0, start_col = 0, s_type=XFStyle()):
 	for x in xrange(len(line)):
 		sheet.write(row, start_col + x, line[x], style=s_type)
 				
-def set_by_col(sheet, data, col = 0, s_type=XFStyle()):
+def set_by_col(sheet, data, col = 0, s_type=XFStyle(), start_row = 0):
 	for x in xrange(len(data)):
-		sheet.write(x, col, data[x], style=s_type)
+		sheet.write(x + start_row, col, data[x], style=s_type)
 		
 def set_individual_cell(sheet, val, row = 0, col = 0, s_type=XFStyle()):
 	sheet.write(row, col, label=val, style=s_type)

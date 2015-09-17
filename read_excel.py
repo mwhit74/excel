@@ -2,8 +2,8 @@
 #For get_loadcases() function
 import sys
 sys.path.append(r'C:\Users\mwhitten\brgusers\Python\loads')
-from force import Force
-from loadcase import LoadCase
+#from force import Force
+#from loadcase import LoadCase
 from xlrd import open_workbook
 
 def get_by_row(sheet, start_row, start_col, end_row = None, 
@@ -47,41 +47,41 @@ def get_individual_cell(sheet, row, col):
 	else:
 		return val.encode('utf-8')
 
-def get_loadcases(sheet, start_cell_row, start_cell_col):
-	counter = start_cell_row
+# def get_loadcases(sheet, start_cell_row, start_cell_col):
+	# counter = start_cell_row
 
-	load_cases = []
+	# load_cases = []
 	
-	#first cell in set to read
-	#initializes the while loop
-	cell_name = sheet.cell(start_cell_row, start_cell_col)
+	# #first cell in set to read
+	# #initializes the while loop
+	# cell_name = sheet.cell(start_cell_row, start_cell_col)
 	
-	while cell_name.value != '':
+	# while cell_name.value != '':
 		
-		#clean up temporary arrays after each loop so the entries
-		# don't compound
-		forces = []
+		# #clean up temporary arrays after each loop so the entries
+		# # don't compound
+		# forces = []
 		
-		forces.append(sheet.cell(counter, start_cell_col + 1).value)
-		forces.append(sheet.cell(counter, start_cell_col + 2).value)
-		forces.append(sheet.cell(counter, start_cell_col + 3).value)
-		forces.append(sheet.cell(counter, start_cell_col + 4).value)
-		forces.append(sheet.cell(counter, start_cell_col + 5).value)
-		forces.append(sheet.cell(counter, start_cell_col + 6).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 1).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 2).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 3).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 4).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 5).value)
+		# forces.append(sheet.cell(counter, start_cell_col + 6).value)
 		
-		new_force = Force(forces = forces)
-		new_load_case = LoadCase(name = cell_name.value, forces = new_force)
-		load_cases.append(new_load_case)
+		# new_force = Force(forces = forces)
+		# new_load_case = LoadCase(name = cell_name.value, forces = new_force)
+		# load_cases.append(new_load_case)
 		
-		#for testing purposes
-		#if counter == start_cell_row:
-		#	print_loads(cell_name, sheet, counter, start_cell_col)
+		# #for testing purposes
+		# #if counter == start_cell_row:
+		# #	print_loads(cell_name, sheet, counter, start_cell_col)
 		
-		counter = counter + 1
+		# counter = counter + 1
 		
-		cell_name = sheet.cell(counter, start_cell_col)
-		#for testing purposes
-		#print_loads(cell_name, sheet, counter, start_cell_col)
+		# cell_name = sheet.cell(counter, start_cell_col)
+		# #for testing purposes
+		# #print_loads(cell_name, sheet, counter, start_cell_col)
 		
 		
-	return load_cases
+	# return load_cases
